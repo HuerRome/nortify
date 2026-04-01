@@ -85,6 +85,7 @@ button {
   margin: 0 auto;
 }
 
+/*----------------------------------------------------------------------------------------------------*/
 /* ==========================================
    DESARROLLO DE LA PÁGINA WEB
 ========================================== */
@@ -490,63 +491,10 @@ header .container {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*----------------------------------------------------------------------------------------------------*/
+/* ==========================================
+   HERO SECTION
+========================================== */
 
 :root {
   --primary: #00A859;
@@ -559,9 +507,38 @@ header .container {
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+main section {
+  min-height: 100vh;
+  /* Fondo base oscuro */
+  background-color: #02040a; 
+  
+  /* Capas de luces: El secreto está en el 'blur' y la opacidad */
+  background-image: 
+    /* Luz azul superior derecha */
+    radial-gradient(circle at 80% 20%, rgba(30, 58, 138, 0.4) 0%, transparent 40%),
+    /* Luz violeta central */
+    radial-gradient(circle at 50% 50%, rgba(88, 28, 135, 0.2) 0%, transparent 50%),
+    /* Luz azul profundo lateral izquierda */
+    radial-gradient(circle at 10% 80%, rgba(29, 78, 216, 0.3) 0%, transparent 40%);
+  
+  background-attachment: fixed; /* Mantiene el fondo estático al hacer scroll */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Opcional: Textura de ruido para suavizar degradados */
+main section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url('https://vercel.app');
+}
+
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+  
   min-height: 100vh;
   display: flex;
   align-items: center;

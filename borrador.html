@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Section</title>
+
+  <style>
+    :root {
+      --primary: #00A859;
+      --primary-dark: #007A44;
+      --accent: #00FF88;
+      --bg: #050505;
+      --bg-soft: #070707;
+      --text: #eaeaea;
+      --muted: #9aa0a6;
+      --radius: 20px;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(0,255,136,0.08), transparent 40%),
+                  radial-gradient(circle at 80% 80%, rgba(0,168,89,0.08), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      padding: 100px 0;
+      overflow: hidden;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero__content {
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero__title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero__subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 35px;
+      max-width: 500px;
+    }
+
+    .hero__buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #000;
+      box-shadow: 0 0 20px rgba(0,255,136,0.25);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0,255,136,0.4);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn--secondary:hover {
+      background: rgba(0,168,89,0.1);
+      box-shadow: 0 0 15px rgba(0,255,136,0.2);
+    }
+
+    .hero__image {
+      position: relative;
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero__card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      box-shadow: 0 20px 60px rgba(0,255,136,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero__card img {
+      width: 100%;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TABLET */
+    @media (max-width: 991px) {
+      .hero__grid {
+        gap: 40px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero__grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero__subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero__buttons {
+        justify-content: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+
+        <!-- LEFT -->
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Descubrí, Creá y Potenciá Tu Marca Digital
+          </h1>
+
+          <p class="hero__subtitle">
+            Impulsamos negocios con estrategias de marketing, contenido y desarrollo web que generan resultados reales.
+          </p>
+
+          <div class="hero__buttons">
+            <a href="#" class="btn btn--primary">Ver Planes</a>
+            <a href="#" class="btn btn--secondary">Sumate al equipo</a>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hero__image">
+          <div class="hero__card">
+            <img src="assets/hero.png"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
