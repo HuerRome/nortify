@@ -78,7 +78,313 @@ button {
 /* ==========================================
    DESARROLLO DE LA PÁGINA WEB
 ========================================== */
+/* ============================================
+   HEADER PREMIUM - Estilo Tecnológico / Neon-Tech
+   ============================================ */
 
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    gap: 2rem;
+    position: relative;
+    z-index: 100;
+}
+
+/* Logo */
+.logo a {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+    transition: opacity 0.2s ease;
+}
+
+.logo a:hover {
+    opacity: 0.85;
+}
+
+/* Botón hamburguesa (oculto en desktop) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Animación del botón hamburguesa al abrir */
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navegación principal */
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 2rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Efecto glow / subrayado inspirado en la referencia */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
+    width: 100%;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(168, 85, 247, 0.5);
+}
+
+/* Header Actions (Buscar + Cotizar) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(15, 25, 45, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(100, 116, 139, 0.4);
+    border-radius: 999px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #f1f5f9;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.search-btn:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #8b5cf6;
+    transform: translateY(-1px);
+}
+
+.search-icon {
+    stroke: #c084fc;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+}
+
+/* ============================================
+   RESPONSIVE TABLET (768px - 1023px)
+   ============================================ */
+@media (max-width: 1023px) {
+    .site-header {
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem;
+    }
+    
+    .search-btn span {
+        display: none; /* Ocultar texto "Buscar" en tablet para ahorrar espacio */
+    }
+    
+    .search-btn {
+        padding: 0.6rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE MOBILE (< 768px)
+   ============================================ */
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(145deg, #0a0c1a 0%, #0f1222 100%);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        gap: 3rem;
+        padding: 6rem 2rem 3rem;
+        margin: 0;
+    }
+    
+    .site-nav.active {
+        transform: translateX(0);
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu a {
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: block;
+        padding: 0.75rem 0;
+    }
+    
+    .nav-menu a::after {
+        bottom: 0.25rem;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .search-btn {
+        width: 80%;
+        justify-content: center;
+        background: rgba(20, 30, 55, 0.9);
+        border: 1px solid rgba(139, 92, 246, 0.5);
+        padding: 0.8rem;
+    }
+    
+    .search-btn span {
+        display: inline; /* Volvemos a mostrar el texto en mobile */
+    }
+    
+    .cta-button {
+        width: 80%;
+        text-align: center;
+        padding: 0.8rem;
+    }
+    
+    /* Ajuste para que el contenido no quede detrás del header fijo */
+    body {
+        padding-top: 0;
+    }
+    
+    /* Aseguramos que el header tenga fondo y no sea transparente en mobile */
+    header {
+        background: rgba(8, 12, 25, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    }
+}
+
+/* Estilos base del header (fondo, sticky, z-index) */
+header {
+    background: rgba(8, 12, 25, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Para mejorar la legibilidad en scroll */
+header.scrolled {
+    background: rgba(5, 8, 18, 0.98);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste para evitar que el contenido quede oculto detrás del header sticky */
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+}
 
 
 
