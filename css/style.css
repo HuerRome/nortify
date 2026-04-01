@@ -68,8 +68,23 @@ button {
   cursor: pointer;
 }
 
+/* Ancho maximo de la página */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* ==========================================
    DESARROLLO DE LA PÁGINA WEB
 ========================================== */
+
+
+
+
+
+
+
+
 
 
