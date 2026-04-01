@@ -3,52 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fiambrissima</title>
-  <meta name="description" content="Fiambrissima, supermercado con varios locales. Calidad, variedad y precios para familias y comercios." />
+  <title>NORTIFY - Agencia de Marketing</title>
+  <meta name="description" content="Impulsamos tu negocio con marketing 360: gestión de redes sociales, diseño web, publicidad paga y branding. Creatividad que genera resultados." />
+  <link rel="icon" href="assets/isologo.jpg" type="image/jpg">
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <!-- Fuentes (ejemplo) -->
-  <!--
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  -->
 </head>
 <body>
   <header>
     <div class="container">
-      <!-- contenido del header -->
-      <div class="site-header">
-          <div class="logo">
-              <a href="/" aria-label="Inicio">PLAY NFT</a>
-          </div>
-          
-          <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNav">
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
+      <!-- contenido -->
+        <div class="site-header">
+          <a href="#" class="site-logo" aria-label="Ir al inicio">
+            <img src="assets/logo.png" alt="">
+
+          </a>
+        
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="site-nav-menu"
+          >
+            <span class="nav-toggle__line"></span>
+            <span class="nav-toggle__line"></span>
+            <span class="nav-toggle__line"></span>
           </button>
-      
-          <nav class="site-nav" id="primaryNav" aria-label="Navegación principal">
-              <ul class="nav-menu">
-                  <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                  <li><a href="#planes">Planes</a></li>
-                  <li><a href="#proyectos">Proyectos</a></li>
-                  <li><a href="#portafolio">Portafolio de Reels</a></li>
-                  <li><a href="#contacto">Contacto</a></li>
-              </ul>
-              
-              <div class="header-actions">
-                  <button class="search-btn" aria-label="Buscar">
-                      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M15.5 15.5L19 19M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                      </svg>
-                      <span>Buscar</span>
-                  </button>
-                  <a href="#cotizar" class="cta-button">Cotizar</a>
-              </div>
+        
+          <nav class="site-nav" aria-label="Navegación principal">
+            <ul class="site-nav__menu" id="site-nav-menu">
+              <li class="site-nav__item">
+                <a href="#sobre-nosotros" class="site-nav__link is-active">Sobre Nosotros</a>
+              </li>
+              <li class="site-nav__item">
+                <a href="#planes" class="site-nav__link">Planes</a>
+              </li>
+              <li class="site-nav__item">
+                <a href="#proyectos" class="site-nav__link">Proyectos</a>
+              </li>
+              <li class="site-nav__item">
+                <a href="#portafolio-reels" class="site-nav__link">Portafolio de Reels</a>
+              </li>
+              <li class="site-nav__item">
+                <a href="#contacto" class="site-nav__link">Contacto</a>
+              </li>
+            </ul>
           </nav>
-      </div>
+        
+          <div class="header-actions">
+            <a href="#buscar" class="header-btn header-btn--search" aria-label="Buscar">
+              <span>Ver Proyectos</span>
+            </a>
+        
+            <a href="#cotizar" class="header-btn header-btn--cta"><i class="fa-brands fa-whatsapp"></i> Contactarse</a>
+          </div>
+        </div>
     </div>
+    
   </header>
   
   <main>
