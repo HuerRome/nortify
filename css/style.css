@@ -78,9 +78,6 @@ button {
 /* ==========================================
    DESARROLLO DE LA PÁGINA WEB
 ========================================== */
-/* ==========================================
-   HEADER PREMIUM / RESPONSIVE
-========================================== */
 
 header {
   position: sticky;
@@ -124,36 +121,9 @@ header .container {
 }
 
 .site-logo img {
- 
   height: 64px;
   border-radius: 0rem;
   object-fit: cover;
-}
-
-.site-logo__text {
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: #f7f8ff;
-  line-height: 1;
-}
-
-.site-logo__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 28px;
-  padding: 0.2rem 0.45rem;
-  border-radius: 0.45rem;
-  background: linear-gradient(135deg, #5f5bff 0%, #2ebcff 100%);
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  line-height: 1;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 8px 18px rgba(54, 106, 255, 0.28);
 }
 
 /* ==========================================
@@ -242,10 +212,6 @@ header .container {
     border-color 0.25s ease,
     background 0.25s ease,
     color 0.25s ease;
-}
-
-.header-btn:hover {
-  transform: translateY(-1px);
 }
 
 .header-btn--search {
@@ -373,119 +339,112 @@ header .container {
 ========================================== */
 
 @media (max-width: 991px) {
-  header .container {
-    padding: 0 0.9rem;
+  .header-btn{
+    display: none;
   }
 
-  .site-header {
-    min-height: 72px;
-  }
-
+  /* HAMBURGUESA visible */
   .nav-toggle {
     display: inline-flex;
     margin-left: auto;
   }
 
+  /* CONTENEDOR FULLSCREEN */
   .site-nav {
-    position: absolute;
-    top: calc(100% + 0.55rem);
-    left: 0;
+    position: fixed;
+    inset: 0;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #070b1f 0%, #050714 100%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
-    z-index: 15;
+    transform: translateY(-20px);
+    transition: all 0.35s ease;
+    z-index: 999;
   }
 
   .site-nav.is-open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    pointer-events: auto;
   }
 
+  /* MENU CENTRADO */
   .site-nav__menu {
-    width: 100%;
-    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
-    list-style: none;
-    padding: 1rem;
-    border-radius: 1.1rem;
-    background:
-      linear-gradient(180deg, rgba(10, 14, 40, 0.98) 0%, rgba(7, 8, 26, 0.98) 100%);
-    border: 1px solid rgba(92, 112, 255, 0.18);
-    box-shadow:
-      0 18px 38px rgba(0, 0, 0, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
   }
 
+  /* LINKS GRANDES */
   .site-nav__link {
-    width: 100%;
-    min-height: 46px;
-    padding: 0.65rem 0.4rem;
-    justify-content: flex-start;
-    border-radius: 0.7rem;
-    font-size: 0.96rem;
-  }
-
-  .site-nav__link:hover {
-    background: rgba(255, 255, 255, 0.03);
+    font-size: 1.2rem;
+    font-weight: 600;
+    justify-content: center;
+    padding: 0;
   }
 
   .site-nav__link::after {
-    left: 0.4rem;
-    bottom: 0.45rem;
-    width: calc(100% - 0.8rem);
+    bottom: -6px;
   }
 
+  /* BOTONES ABAJO */
   .header-actions {
     position: absolute;
-    top: calc(100% + 21.5rem);
+    bottom: 40px;
     left: 0;
     width: 100%;
+
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    padding: 0 1rem 1rem;
+    gap: 1rem;
+    padding: 0 1.5rem;
+
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
-    z-index: 14;
+    transform: translateY(20px);
+    transition: all 0.35s ease;
   }
 
   .header-actions.is-open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    pointer-events: auto;
   }
 
   .header-btn {
     width: 100%;
-    justify-content: center;
-    min-height: 48px;
-    border-radius: 0.9rem;
+    height: 52px;
+    font-size: 1rem;
+    border-radius: 999px;
   }
 
-  .header-btn--search,
-  .header-btn--cta {
-    padding: 0 1rem;
+  /* OPCIONAL: BOTON CERRAR MÁS GRANDE */
+  .nav-toggle {
+    position: relative;
+    z-index: 1001;
+  }
+
+  .site-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(80,120,255,0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(140,80,255,0.15), transparent 40%);
+    z-index: -1;
   }
 }
+
 
 /* ==========================================
    MOBILE FINO
