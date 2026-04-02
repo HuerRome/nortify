@@ -215,6 +215,7 @@ header .container {
   gap: 0.45rem;
   min-height: 44px;
   border-radius: 0.85rem;
+  
   font-size: 0.95rem;
   font-weight: 700;
   transition:
@@ -233,6 +234,7 @@ header .container {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.02),
     0 0 0 1px rgba(0, 168, 89, 0.05);
+
 }
 
 .header-btn--search:hover {
@@ -496,9 +498,6 @@ header .container {
    HERO SECTION
 ========================================== */
 :root {
-  --primary: #00A859;
-  --primary-dark: #007A44;
-  --accent: #00FF88;
   --bg: #050505;
   --bg-soft: #070707;
   --text: #eaeaea;
@@ -506,6 +505,16 @@ header .container {
   --radius: 20px;
   --max-width: 1200px;
 }
+:root {
+  --color-bg: #050505;
+  --color-text: #ffffff;
+  --primary: #00A859;
+  --primary-dark: #007A44;
+  --primary-light: #00c96b;
+  --border: rgba(0, 168, 89, 0.35);
+  --glass: rgba(0, 168, 89, 0.08);
+}
+
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
@@ -575,15 +584,19 @@ body {
 .btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 30px rgba(0,255,136,0.4);
+  border-color: var(--primary);
 }
 .btn--secondary {
-  background: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  box-shadow:
+    0 10px 22px rgba(0, 168, 89, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 .btn--secondary:hover {
-  background: rgba(0,168,89,0.1);
-  box-shadow: 0 0 15px rgba(0,255,136,0.2);
+  box-shadow:
+    0 14px 28px rgba(0, 168, 89, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 .hero__card img {
   width: 100%;
