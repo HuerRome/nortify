@@ -51,3 +51,111 @@ if (navToggle && siteNav && headerActions) {
     }
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const hero = document.querySelector(".hero");
+const heroContainer = document.querySelector(".hero-container");
+
+/* =========================
+   3D PARALLAX EFFECT
+========================= */
+
+hero.addEventListener("mousemove", (e) => {
+  const x = window.innerWidth / 2 - e.pageX;
+  const y = window.innerHeight / 2 - e.pageY;
+
+  heroContainer.style.transform = `
+    rotateY(${x / 45}deg)
+    rotateX(${y / 45}deg)
+  `;
+});
+
+/* reset */
+
+hero.addEventListener("mouseleave", () => {
+  heroContainer.style.transform = `
+    rotateY(0deg)
+    rotateX(0deg)
+  `;
+});
+
+/* =========================
+   BUTTON MICRO INTERACTION
+========================= */
+
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach((button) => {
+  button.addEventListener("mousemove", (e) => {
+    const rect = button.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    button.style.setProperty("--x", `${x}px`);
+    button.style.setProperty("--y", `${y}px`);
+  });
+});
