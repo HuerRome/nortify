@@ -108,54 +108,45 @@ if (navToggle && siteNav && headerActions) {
 
 
 
+// HERO BUTTON MICRO INTERACTION
 
+const primaryButton = document.querySelector(".btn-primary");
+const secondaryButton = document.querySelector(".btn-secondary");
 
+primaryButton.addEventListener("mousemove", (e) => {
+  const rect = primaryButton.getBoundingClientRect();
 
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-
-
-
-
-const hero = document.querySelector(".hero");
-const heroContainer = document.querySelector(".hero-container");
-
-/* =========================
-   3D PARALLAX EFFECT
-========================= */
-
-hero.addEventListener("mousemove", (e) => {
-  const x = window.innerWidth / 2 - e.pageX;
-  const y = window.innerHeight / 2 - e.pageY;
-
-  heroContainer.style.transform = `
-    rotateY(${x / 45}deg)
-    rotateX(${y / 45}deg)
+  primaryButton.style.background = `
+    radial-gradient(circle at ${x}px ${y}px,
+    rgba(255,255,255,0.18),
+    transparent 35%),
+    linear-gradient(135deg,#8f4eff 0%,#9f61ff 100%)
   `;
 });
 
-/* reset */
+primaryButton.addEventListener("mouseleave", () => {
+  primaryButton.style.background =
+    "linear-gradient(135deg,#8f4eff 0%,#9f61ff 100%)";
+});
 
-hero.addEventListener("mouseleave", () => {
-  heroContainer.style.transform = `
-    rotateY(0deg)
-    rotateX(0deg)
+secondaryButton.addEventListener("mousemove", (e) => {
+  const rect = secondaryButton.getBoundingClientRect();
+
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  secondaryButton.style.background = `
+    radial-gradient(circle at ${x}px ${y}px,
+    rgba(255,255,255,0.08),
+    transparent 40%),
+    rgba(18,18,18,0.95)
   `;
 });
 
-/* =========================
-   BUTTON MICRO INTERACTION
-========================= */
-
-const buttons = document.querySelectorAll(".btn");
-
-buttons.forEach((button) => {
-  button.addEventListener("mousemove", (e) => {
-    const rect = button.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    button.style.setProperty("--x", `${x}px`);
-    button.style.setProperty("--y", `${y}px`);
-  });
+secondaryButton.addEventListener("mouseleave", () => {
+  secondaryButton.style.background =
+    "rgba(10,10,10,0.88)";
 });
