@@ -106,12 +106,17 @@ if (navToggle && siteNav && headerActions) {
 
 
 
-
-
 // HERO BUTTON MICRO INTERACTION
 
 const primaryButton = document.querySelector(".btn-primary");
 const secondaryButton = document.querySelector(".btn-secondary");
+
+// Obtener variables CSS dinámicamente
+const rootStyles = getComputedStyle(document.documentElement);
+
+const primary = rootStyles.getPropertyValue("--primary").trim();
+const primaryLight = rootStyles.getPropertyValue("--primary-light").trim();
+const glass = rootStyles.getPropertyValue("--glass").trim();
 
 primaryButton.addEventListener("mousemove", (e) => {
   const rect = primaryButton.getBoundingClientRect();
@@ -123,13 +128,14 @@ primaryButton.addEventListener("mousemove", (e) => {
     radial-gradient(circle at ${x}px ${y}px,
     rgba(255,255,255,0.18),
     transparent 35%),
-    linear-gradient(135deg,#8f4eff 0%,#9f61ff 100%)
+    linear-gradient(135deg, ${primary} 0%, ${primaryLight} 100%)
   `;
 });
 
 primaryButton.addEventListener("mouseleave", () => {
-  primaryButton.style.background =
-    "linear-gradient(135deg,#8f4eff 0%,#9f61ff 100%)";
+  primaryButton.style.background = `
+    linear-gradient(135deg, ${primary} 0%, ${primaryLight} 100%)
+  `;
 });
 
 secondaryButton.addEventListener("mousemove", (e) => {
@@ -142,11 +148,15 @@ secondaryButton.addEventListener("mousemove", (e) => {
     radial-gradient(circle at ${x}px ${y}px,
     rgba(255,255,255,0.08),
     transparent 40%),
-    rgba(18,18,18,0.95)
+    rgba(10,10,10,0.92)
   `;
+
+  secondaryButton.style.borderColor = primary;
+  secondaryButton.style.boxShadow = `0 0 20px ${glass}`;
 });
 
 secondaryButton.addEventListener("mouseleave", () => {
-  secondaryButton.style.background =
-    "rgba(10,10,10,0.88)";
+  secondaryButton.style.background = "rgba(10,10,10,0.88)";
+  secondaryButton.style.borderColor = "";
+  secondaryButton.style.boxShadow = "none";
 });
